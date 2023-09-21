@@ -13,9 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.theme.MainActivity"
+            android:name="com.example.myapplication.ui.theme.transaction.SellitemActivity"
             android:exported="true"
-            android:label="swpapp"
+            android:label="Sell_Item"
             android:theme="@style/Theme.AppCompat"
             >
         <intent-filter>
@@ -23,6 +23,14 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.theme.transaction.BuyitemActivity"
+            android:exported="true"
+            android:label="Buy_Item"
+            android:theme="@style/Theme.AppCompat"
+            >
         </activity>
     </application>
 
