@@ -31,20 +31,24 @@ class SellitemActivity : AppCompatActivity() {
             val sellerID = sellerIDEditText.text.toString()
             val itemCount = itemCountEditText.text.toString().toInt()
             val itemPrice = itemPriceEditText.text.toString().toDouble()
+            val key = databaseReference.push().key
 
-            // 데이터를 Map 형태로 만듭니다.
-            val carbonCreditData = HashMap<String, Any>()
-            carbonCreditData["판매자ID"] = sellerID
-            carbonCreditData["판매물품개수"] = itemCount
-            carbonCreditData["판매물품가격"] = itemPrice
+            if (key != null) {
+                // 데이터를 Map 형태로 만듭니다.
+                val carbonCreditData = HashMap<String, Any>()
+                carbonCreditData["key"] = key
+                carbonCreditData["판매자ID"] = sellerID
+                carbonCreditData["판매물품개수"] = itemCount
+                carbonCreditData["판매물품가격"] = itemPrice
 
-            // 데이터를 Firebase에 삽입
-            databaseReference.push().setValue(carbonCreditData) // 고유한 키를 생성하여 데이터를 쓰기
+                // 데이터를 Firebase에 삽입
+                databaseReference.child(key).setValue(carbonCreditData) // 고유한 키를 생성하여 데이터를 쓰기
 
-            // 데이터 입력 후 화면 초기화 또는 다른 작업 수행
-            sellerIDEditText.text.clear()
-            itemCountEditText.text.clear()
-            itemPriceEditText.text.clear()
+                // 데이터 입력 후 화면 초기화 또는 다른 작업 수행
+                sellerIDEditText.text.clear()
+                itemCountEditText.text.clear()
+                itemPriceEditText.text.clear()
+            }
         }
 
         val goToBuyButton = findViewById<Button>(R.id.goToBuyButton)

@@ -49,15 +49,15 @@ class BuyitemActivity : AppCompatActivity() {
                             val itemToDelete = carbonCreditList[position]
                             val keyToDelete = itemToDelete.key
                             if (keyToDelete != null) {
-                                databaseReference.child(keyToDelete).removeValue()
+                                val itemReference = databaseReference.child(keyToDelete)
+                                itemReference.removeValue()
 
                                 // 아래 코드를 추가하여 리스트에서 아이템 제거
                                 carbonCreditList.removeAt(position)
                                 adapter.notifyItemRemoved(position)
                             }
                             else {
-                                carbonCreditList.removeAt(position)
-                                adapter.notifyItemRemoved(position)
+
                             }
                         }
                     })
