@@ -29,7 +29,14 @@ class join_membership : AppCompatActivity() {
             val password = join_editpass.text.toString()
             val repasswd = join_re_editpass.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
+            if(password != repasswd){
+                Toast.makeText(
+                    this,
+                    "비밀번호가 서로 다릅니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else if (email.isNotEmpty() && password.isNotEmpty()) {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -62,16 +69,10 @@ class join_membership : AppCompatActivity() {
                             ).show()
                         }
                     }
-            } else if(password != repasswd){
-                Toast.makeText(
-                    this,
-                    "비밀번호가 서로 다릅니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
             } else {
                 Toast.makeText(
                     this,
-                    "아이디와 비밀번호를 입력하세요.",
+                    "이메일과 비밀번호를 입력하세요",
                     Toast.LENGTH_SHORT
                 ).show()
             }
