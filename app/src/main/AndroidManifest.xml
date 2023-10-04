@@ -18,17 +18,35 @@
             android:label="Sell_Item"
             android:theme="@style/Theme.AppCompat"
             >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
         <activity
             android:name=".ui.theme.transaction.BuyitemActivity"
             android:exported="true"
             android:label="Buy_Item"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.login.login"
+            android:exported="true"
+            android:label="login"
+            android:theme="@style/Theme.AppCompat"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".ui.theme.login.join_membership"
+            android:exported="true"
+            android:label="join"
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
