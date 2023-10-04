@@ -50,6 +50,13 @@
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
+        <activity
+            android:name=".ui.theme.home.mainMenu"
+            android:exported="true"
+            android:label="homemenu"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
     </application>
 
 </manifest>

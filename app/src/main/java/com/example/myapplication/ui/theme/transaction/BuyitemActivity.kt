@@ -72,6 +72,7 @@ class BuyitemActivity : AppCompatActivity() {
         binding.goToSellButton.setOnClickListener {
             val intent = Intent(this, SellitemActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
