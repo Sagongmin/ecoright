@@ -8,6 +8,8 @@
     import com.example.myapplication.R
     import android.widget.Button
     import android.widget.EditText
+    import android.widget.Toast
+    import com.example.myapplication.ui.theme.login.login
     import com.google.firebase.auth.FirebaseAuth
 
     class SellitemActivity : AppCompatActivity() {
@@ -30,13 +32,16 @@
             // 판매 버튼 클릭 리스너 설정
             sellButton.setOnClickListener {
                 // 입력값 가져오기
-                val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
-                val sellerID = currentUserUid ?: ""
-                val itemCount = itemCountEditText.text.toString().toInt()
-                val itemPrice = itemPriceEditText.text.toString().toDouble()
+                val currentUser = FirebaseAuth.getInstance().currentUser
                 //val key = databaseReference.push().key
 
-                if (currentUserUid != null) {
+                if (currentUser != null) {
+
+                    val currentUserUid = currentUser.uid
+                    val sellerID = currentUserUid ?: ""
+                    val itemCount = itemCountEditText.text.toString().toInt()
+                    val itemPrice = itemPriceEditText.text.toString().toDouble()
+
                     // 데이터를 Map 형태로 만듭니다.
                     val carbonCreditData = HashMap<String, Any>()
                     //carbonCreditData["key"] = key
@@ -54,7 +59,10 @@
                     itemPriceEditText.text.clear()
                 }
                 else {
-                    Log.e("SellitemActivity", "사용자가 로그인되어 있지 않습니다.") // 로그 추가
+                    Toast.makeText(this, "사용자가 로그인되어 있지 않습니다. 로그인을 해주세요.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, login::class.java) // 로그인 화면으로 리디렉션
+                    startActivity(intent)
+                    finish()
                 }
             }
 
