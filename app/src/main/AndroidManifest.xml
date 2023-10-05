@@ -50,6 +50,15 @@
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
+
+        <activity
+            android:name=".ui.theme.main.MainPage"
+            android:exported="true"
+            android:label="Main_page"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
     </application>
 
 </manifest>
