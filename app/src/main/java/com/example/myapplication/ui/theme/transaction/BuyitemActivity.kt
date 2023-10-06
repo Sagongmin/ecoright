@@ -20,7 +20,7 @@ class BuyitemActivity : AppCompatActivity() {
         binding = ActivityBuyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("탄소배출권")
+        databaseReference = FirebaseDatabase.getInstance().getReference("탄소배출권").child("users")
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -30,10 +30,12 @@ class BuyitemActivity : AppCompatActivity() {
                 if (dataSnapshot.exists()) {
                     val carbonCreditList = mutableListOf<CarbonCreditItem>()
 
-                    for (itemSnapshot in dataSnapshot.children) {
-                        val item = itemSnapshot.getValue(CarbonCreditItem::class.java)
-                        if (item != null) {
-                            carbonCreditList.add(item)
+                    for (userSnapshot in dataSnapshot.children) {
+                        for (itemSnapshot in userSnapshot.children) {
+                            val item = itemSnapshot.getValue(CarbonCreditItem::class.java)
+                            if (item != null) {
+                                carbonCreditList.add(item)
+                            }
                         }
                     }
 
@@ -47,18 +49,13 @@ class BuyitemActivity : AppCompatActivity() {
                         override fun onBuyClick(position: Int) {
                             // 구매 작업 수행
                             val itemToDelete = carbonCreditList[position]
-                            val keyToDelete = itemToDelete.key
-                            if (keyToDelete != null) {
-                                val itemReference = databaseReference.child(keyToDelete)
-                                itemReference.removeValue()
+                            val userReference = databaseReference.child(itemToDelete.key.orEmpty()) // 해당 아이템이 속한 사용자 참조
+                            val itemReference = userReference.child(itemToDelete.key.orEmpty()) // 아이템 참조
+                            itemReference.removeValue()
 
-                                // 아래 코드를 추가하여 리스트에서 아이템 제거
-                                carbonCreditList.removeAt(position)
-                                adapter.notifyItemRemoved(position)
-                            }
-                            else {
-
-                            }
+                            // 아래 코드를 추가하여 리스트에서 아이템 제거
+                            carbonCreditList.removeAt(position)
+                            adapter.notifyItemRemoved(position)
                         }
                     })
                 }
