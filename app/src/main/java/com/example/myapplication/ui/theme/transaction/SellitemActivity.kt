@@ -9,6 +9,7 @@
     import android.widget.Button
     import android.widget.EditText
     import android.widget.Toast
+    import com.example.myapplication.ui.theme.home.mainMenu
     import com.example.myapplication.ui.theme.login.login
     import com.google.firebase.auth.FirebaseAuth
 
@@ -70,6 +71,14 @@
 
             goToBuyButton.setOnClickListener {
                 val intent = Intent(this, BuyitemActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            val goToHomeButton = findViewById<Button>(R.id.goToHomeButton)
+
+            goToHomeButton.setOnClickListener {
+                val intent = Intent(this, mainMenu::class.java)
                 startActivity(intent)
                 finish()
             }
