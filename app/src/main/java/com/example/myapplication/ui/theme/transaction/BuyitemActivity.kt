@@ -49,9 +49,9 @@ class BuyitemActivity : AppCompatActivity() {
                         override fun onBuyClick(position: Int) {
                             // 구매 작업 수행
                             val itemToDelete = carbonCreditList[position]
-                            val userReference = databaseReference.child(itemToDelete.key.orEmpty()) // 해당 아이템이 속한 사용자 참조
-                            val itemReference = userReference.child(itemToDelete.key.orEmpty()) // 아이템 참조
-                            itemReference.removeValue()
+                            val userReference = databaseReference.child(itemToDelete.판매자ID).child(itemToDelete.key.orEmpty()) // 해당 아이템이 속한 사용자 참조
+                            //val itemReference = userReference.child(itemToDelete.key.orEmpty()) // 아이템 참조
+                            userReference.removeValue()
 
                             // 아래 코드를 추가하여 리스트에서 아이템 제거
                             carbonCreditList.removeAt(position)

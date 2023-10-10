@@ -43,16 +43,22 @@
                     val itemCount = itemCountEditText.text.toString().toInt()
                     val itemPrice = itemPriceEditText.text.toString().toDouble()
 
+                    // 데이터를 Firebase에 삽입
+                    val newItemReference = databaseReference.child("users").child(currentUserUid).push()
+                    val newItemKey = newItemReference.key
+
                     // 데이터를 Map 형태로 만듭니다.
                     val carbonCreditData = HashMap<String, Any>()
-                    //carbonCreditData["key"] = key
+                    if (newItemKey != null) {
+                        carbonCreditData["key"] = newItemKey // 생성된 키를 판매 물품 데이터에 저장
+                    } else {
+                        // 키가 null이면 처리 방법을 정의하세요. 예를 들어 오류 메시지 표시 등
+                    }
                     carbonCreditData["판매자ID"] = sellerID
                     carbonCreditData["판매물품개수"] = itemCount
                     carbonCreditData["판매물품가격"] = itemPrice
 
-                    // 데이터를 Firebase에 삽입
-                    val userSpecificRef = databaseReference.child("users").child(currentUserUid)
-                    userSpecificRef.push().setValue(carbonCreditData) // 고유한 키를 생성하여 데이터를 쓰기
+                    newItemReference.setValue(carbonCreditData) // 고유한 키를 생성하여 데이터를 쓰기
                     //databaseReference.child(key).setValue(carbonCreditData) // 고유한 키를 생성하여 데이터를 쓰기
 
                     // 데이터 입력 후 화면 초기화 또는 다른 작업 수행
