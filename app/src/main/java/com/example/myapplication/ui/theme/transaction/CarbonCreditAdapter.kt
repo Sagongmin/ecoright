@@ -47,7 +47,7 @@ class CarbonCreditAdapter(private val itemList: List<CarbonCreditItem>) :
         }
 
         fun bind(item: CarbonCreditItem) {
-            binding.textViewSellerID.text = item.판매자ID
+            binding.textViewSellerID.text = item.username
             binding.textViewItemCount.text = item.판매물품개수.toString()
             binding.textViewItemPrice.text = item.판매물품가격.toString()
         }
