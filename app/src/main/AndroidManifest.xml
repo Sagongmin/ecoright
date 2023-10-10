@@ -59,6 +59,14 @@
             >
         </activity>
 
+        <activity
+            android:name=".ui.theme.login.search_id_pass"
+            android:exported="true"
+            android:label="Main_page"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
     </application>
 
 </manifest>

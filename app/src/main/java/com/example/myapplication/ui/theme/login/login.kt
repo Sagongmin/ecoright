@@ -40,6 +40,22 @@ class login : AppCompatActivity(){
         loginButton.setOnClickListener {
             signinEmail()
         }
+
+        val goToSearchid = findViewById<Button>(R.id.btn_searchid)
+
+        if (goToSearchid != null) {
+            goToSearchid.setOnClickListener {
+                val intent = Intent(this, search_id_pass::class.java)
+                startActivity(intent)
+            }
+        }
+        else {
+            Toast.makeText(
+                this,
+                "안되는데요",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
 
@@ -71,4 +87,5 @@ class login : AppCompatActivity(){
             startActivity(Intent(this, MainPage::class.java))
         }
     }
+
 }
