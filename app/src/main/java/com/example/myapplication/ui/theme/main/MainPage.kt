@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.google.firebase.database.*
 import com.example.myapplication.databinding.ActivityBuyBinding
+import com.example.myapplication.ui.theme.community.ListActivity
 import com.example.myapplication.ui.theme.login.join_membership
 import com.example.myapplication.ui.theme.transaction.BuyitemActivity
 import com.example.myapplication.ui.theme.transaction.CarbonCreditItem
@@ -46,6 +47,22 @@ class MainPage : AppCompatActivity() {
         if (goToSellButton != null) {
             goToSellButton.setOnClickListener {
                 val intent = Intent(this, SellitemActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        else {
+            Toast.makeText(
+                this,
+                "안되는데요",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        val goTocommunityButton = findViewById<Button>(R.id.goto_community)
+
+        if (goTocommunityButton != null) {
+            goTocommunityButton.setOnClickListener {
+                val intent = Intent(this, ListActivity::class.java)
                 startActivity(intent)
             }
         }
