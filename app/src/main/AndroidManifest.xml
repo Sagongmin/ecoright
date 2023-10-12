@@ -67,6 +67,11 @@
             >
         </activity>
 
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" />
+
     </application>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

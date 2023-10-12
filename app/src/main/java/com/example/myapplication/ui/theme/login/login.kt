@@ -12,6 +12,10 @@ import android.widget.EditText
 import com.example.myapplication.ui.theme.login.join_membership
 import com.example.myapplication.ui.theme.main.MainPage
 import com.example.myapplication.ui.theme.transaction.BuyitemActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class login : AppCompatActivity(){
     private lateinit var auth: FirebaseAuth
@@ -66,12 +70,41 @@ class login : AppCompatActivity(){
                     task ->
                 if(task.isSuccessful) {
                     // Login, 아이디와 패스워드가 맞았을 때
-                    Toast.makeText(
-                        this,
-                        "로그인 성공",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    moveMainPage(task.result?.user)
+                    val user = FirebaseAuth.getInstance().currentUser
+                    val userId = FirebaseAuth.getInstance().currentUser?.uid
+                    val getDatabase = FirebaseDatabase.getInstance()
+                    val database = getDatabase.reference
+                    val userGetRef = getDatabase.getReference("users").child(userId!!)
+
+                    if (user != null) {
+                        userGetRef.child("username").addListenerForSingleValueEvent(object :
+                            ValueEventListener {
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    val username = dataSnapshot.value.toString()
+                                    Toast.makeText(this@login, // 반드시 현재 액티비티의 컨텍스트로 바꿔야 합니다.
+                                        "로그인 완료\n 현재 사용자: $username",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+
+                            override fun onCancelled(databaseError: DatabaseError) {
+                                // 데이터를 읽는 중 오류가 발생한 경우 처리할 내용을 여기에 추가할 수 있습니다.
+                            }
+                        })
+
+                        val newPassword = password_edittext.text.toString()
+                        val userReference = database.child("users").child(userId!!)
+                        userReference.child("password").setValue(newPassword) // 사용자 데이터를 업데이트
+                        moveMainPage(task.result?.user)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "사용자가 로그인되어 있지 않습니다.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 } else {
                     Toast.makeText(
                         this,
