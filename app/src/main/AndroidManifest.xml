@@ -57,6 +57,35 @@
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
+
+        <activity
+            android:name=".ui.theme.login.search_id_pass"
+            android:exported="true"
+            android:label="search_id_pass"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.community.ListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.community.DetailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.community.RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
     </application>
 
 </manifest>

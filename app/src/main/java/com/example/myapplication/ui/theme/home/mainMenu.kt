@@ -13,30 +13,23 @@ class mainMenu : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homemenu)
 
-        val userId = intent.getStringExtra("userId")
-        val userName = intent.getStringExtra("userName")
-        val userEmail = intent.getStringExtra("userEmail")
-
         val goTotrButton = findViewById<Button>(R.id.TR_btn)
         val goTocmButton = findViewById<Button>(R.id.CM_btn)
         val goToseButton = findViewById<Button>(R.id.SE_btn)
-
+        val goTologoutButton = findViewById<Button>(R.id.logout_btn)
 
         goTotrButton.setOnClickListener {
             val intent = Intent(this, SellitemActivity::class.java)
             startActivity(intent)
             finish()
-
-            val user = FirebaseAuth.getInstance().currentUser
-            if (user != null) {
-                // 사용자 정보를 Intent에 추가
-                intent.putExtra("userId", user.uid)
-                intent.putExtra("userName", user.displayName)
-                intent.putExtra("userEmail", user.email)
-            }
         }
 
-        goTocmButton.setOnClickListener{
+        goTocmButton.setOnClickListener {
+            val intent = Intent(this, com.example.myapplication.ui.theme.community.ListActivity::class.java)
+            startActivity(intent)
+        }
+
+        goTologoutButton.setOnClickListener{
             val auth = FirebaseAuth.getInstance()
             auth.signOut()
 

@@ -19,11 +19,12 @@
         <EditText
             android:id="@+id/title_et"
             android:padding="16dp"
-            android:background="#eeeeee"
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="제목을 입력하세요."
+            android:textColor="@color/black"
             />
     </LinearLayout>
 
@@ -41,6 +42,7 @@
         android:layout_weight="1"
         android:background="#eeeeee"
         android:hint="내용을 입력하세요."
+        android:textColor="@color/black"
         />
 
     <Button
