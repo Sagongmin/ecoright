@@ -66,14 +66,53 @@ object ActivityTransitionUtil {
                 .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
                 .build()
         )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.ON_FOOT)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
+                .build()
+        )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.ON_FOOT)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                .build()
+        )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.ON_BICYCLE)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
+                .build()
+        )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.ON_BICYCLE)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                .build()
+        )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.TILTING)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
+                .build()
+        )
+        transitions.add(
+            ActivityTransition.Builder()
+                .setActivityType(DetectedActivity.TILTING)
+                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
+                .build()
+        )
         return ActivityTransitionRequest(transitions)
     }
 
     fun toActivityString(activity: Int): String {
         return when(activity){
             DetectedActivity.STILL -> "STILL"
+            DetectedActivity.ON_FOOT -> "ON_FOOT"
             DetectedActivity.WALKING -> "WALKING"
             DetectedActivity.RUNNING -> "RUNNING"
+            DetectedActivity.TILTING -> "Tilting"
+            DetectedActivity.ON_BICYCLE -> "On BICYCLE"
             DetectedActivity.IN_VEHICLE -> "IN_VEHICLE"
             else -> "UNKNOWN"
         }

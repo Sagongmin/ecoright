@@ -68,13 +68,26 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
     private fun requestForUpdates() {
-        client
+        /*client
             .requestActivityTransitionUpdates(
                 ActivityTransitionUtil.getTransitionRequest(),
                 getPendingIntent()
             )
             .addOnSuccessListener {
                 Timber.d("success - Request Updates")
+            }
+            .addOnFailureListener{
+                Timber.d("Failure - Request Updates")
+            }*/
+        var detectionIntervalMillis = 10000; // 10초
+
+        client
+            .requestActivityUpdates(
+                detectionIntervalMillis.toLong(),
+                getPendingIntent()
+            )
+            .addOnSuccessListener {
+                Timber.d("Success - Request Updates")
             }
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
@@ -98,11 +111,13 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun requestActivityTransitionPermission() {
+
         EasyPermissions.requestPermissions(
             this,
             "you need to allow activity transition permissions in order to use this feature.",
             Constants.ACTIVITY_TRANSITION_REQUEST_CODE,
-            Manifest.permission.ACTIVITY_RECOGNITION
+            Manifest.permission.ACTIVITY_RECOGNITION,
+            Manifest.permission.ACCESS_FINE_LOCATION
         )
     }
 
