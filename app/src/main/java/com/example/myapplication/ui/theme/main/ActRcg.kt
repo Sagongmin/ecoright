@@ -87,6 +87,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     }
     private fun getPendingIntent(): PendingIntent? {
         val intent = Intent(this, ActivityTransitionReceiver::class.java)
+        intent.action = "com.example.myapplication.ui.theme.main.activity_intent_filter"
         return PendingIntent.getBroadcast(
             this,
             Constants.ACTIVITY_TRANSITION_REQUEST_CODE_RECEIVER,
