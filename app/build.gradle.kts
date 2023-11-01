@@ -76,4 +76,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation ("com.google.android.gms:play-services-location:17.1.0")
+    implementation("com.jakewharton.timber:timber:4.7.1")
+    implementation("pub.devrel:easypermissions:3.0.0")
+    implementation("com.google.android.material:material:1.3.0-alpha02")
+    implementation("io.karn:notify:1.3.0")
 }
