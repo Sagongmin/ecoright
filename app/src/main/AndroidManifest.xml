@@ -2,13 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />-->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher_foreground"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
@@ -91,11 +97,24 @@
             >
         </activity>
 
+        <activity
+            android:name=".ui.theme.api.UseApi"
+            android:exported="true"
+            android:label="Main_page"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
         <service android:name="com.google.firebase.components.ComponentDiscoveryService" />
 
+        <receiver android:name=".ui.theme.api.ActivityDetectionBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".ui.theme.api.UseApi.activity_intent_filter" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
-
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

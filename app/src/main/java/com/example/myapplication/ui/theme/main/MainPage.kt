@@ -17,6 +17,7 @@ import com.example.myapplication.ui.theme.transaction.CarbonCreditItem
 import com.example.myapplication.ui.theme.transaction.SellitemActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.example.myapplication.ui.theme.api.UseApi
 
 class MainPage : AppCompatActivity() {
 
@@ -63,6 +64,22 @@ class MainPage : AppCompatActivity() {
         if (goTocommunityButton != null) {
             goTocommunityButton.setOnClickListener {
                 val intent = Intent(this, ListActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        else {
+            Toast.makeText(
+                this,
+                "안되는데요",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        val goToapiButton = findViewById<Button>(R.id.goto_api)
+
+        if (goToapiButton != null) {
+            goToapiButton.setOnClickListener {
+                val intent = Intent(this, UseApi::class.java)
                 startActivity(intent)
             }
         }
