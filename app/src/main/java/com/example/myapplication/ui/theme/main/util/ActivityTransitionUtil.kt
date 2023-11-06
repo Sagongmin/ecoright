@@ -90,18 +90,6 @@ object ActivityTransitionUtil {
                 .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
                 .build()
         )
-        transitions.add(
-            ActivityTransition.Builder()
-                .setActivityType(DetectedActivity.TILTING)
-                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_ENTER)
-                .build()
-        )
-        transitions.add(
-            ActivityTransition.Builder()
-                .setActivityType(DetectedActivity.TILTING)
-                .setActivityTransition(ActivityTransition.ACTIVITY_TRANSITION_EXIT)
-                .build()
-        )
         return ActivityTransitionRequest(transitions)
     }
 
@@ -111,7 +99,6 @@ object ActivityTransitionUtil {
             DetectedActivity.ON_FOOT -> "ON_FOOT"
             DetectedActivity.WALKING -> "WALKING"
             DetectedActivity.RUNNING -> "RUNNING"
-            DetectedActivity.TILTING -> "Tilting"
             DetectedActivity.ON_BICYCLE -> "On BICYCLE"
             DetectedActivity.IN_VEHICLE -> "IN_VEHICLE"
             else -> "UNKNOWN"

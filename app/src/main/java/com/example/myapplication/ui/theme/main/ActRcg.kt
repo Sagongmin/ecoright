@@ -79,7 +79,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
             }*/
-        var detectionIntervalMillis = 10000; // 10초
+        var detectionIntervalMillis = 0; // 10초
 
         client
             .requestActivityUpdates(
