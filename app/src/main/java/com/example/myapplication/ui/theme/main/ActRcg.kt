@@ -68,7 +68,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
     private fun requestForUpdates() {
-        /*client
+        client
             .requestActivityTransitionUpdates(
                 ActivityTransitionUtil.getTransitionRequest(),
                 getPendingIntent()
@@ -78,8 +78,8 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             }
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
-            }*/
-        var detectionIntervalMillis = 0; // 10초
+            }
+        /*var detectionIntervalMillis = 0; // 10초
 
         client
             .requestActivityUpdates(
@@ -91,7 +91,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             }
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
-            }
+            }*/
     }
 
     private fun removeUpdates() {
