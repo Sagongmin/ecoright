@@ -21,7 +21,7 @@ import timber.log.Timber
 class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private lateinit var client: ActivityRecognitionClient
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actrcg)
@@ -32,7 +32,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         findViewById<SwitchMaterial>(R.id.switchActivityTransition).setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
                     !ActivityTransitionUtil.hasActivityTransitionPermission(context = this)
                 ) {
                     findViewById<SwitchMaterial>(R.id.switchActivityTransition).isChecked = false
@@ -50,7 +50,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         requestForUpdates()
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
         if(EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
             AppSettingsDialog.Builder(this).build().show()
@@ -68,7 +68,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
     private fun requestForUpdates() {
-        client
+        /*client
             .requestActivityTransitionUpdates(
                 ActivityTransitionUtil.getTransitionRequest(),
                 getPendingIntent()
@@ -78,8 +78,8 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             }
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
-            }
-        /*var detectionIntervalMillis = 0; // 10초
+            }*/
+        var detectionIntervalMillis = 0; // 10초
 
         client
             .requestActivityUpdates(
@@ -91,7 +91,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             }
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
-            }*/
+            }
     }
 
     private fun removeUpdates() {
@@ -105,19 +105,20 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             this,
             Constants.ACTIVITY_TRANSITION_REQUEST_CODE_RECEIVER,
             intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT
         )
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun requestActivityTransitionPermission() {
 
         EasyPermissions.requestPermissions(
             this,
             "you need to allow activity transition permissions in order to use this feature.",
             Constants.ACTIVITY_TRANSITION_REQUEST_CODE,
-            Manifest.permission.ACTIVITY_RECOGNITION,
-            Manifest.permission.ACCESS_FINE_LOCATION
+            //Manifest.permission.ACTIVITY_RECOGNITION,
+            "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+            Manifest.permission.ACCESS_FINE_LOCATION,
         )
     }
 

@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import com.example.myapplication.ui.theme.main.util.ActivityTransitionUtil
+import com.google.android.gms.location.ActivityRecognitionResult
 import com.google.android.gms.location.ActivityTransition
 import com.google.android.gms.location.ActivityTransitionResult
 import com.google.android.gms.location.DetectedActivity
@@ -16,7 +18,7 @@ class ActivityTransitionReceiver: BroadcastReceiver() {
         val activityStartTimes = mutableMapOf<Int, Long>()
     }
     override fun onReceive(context: Context, intent: Intent) {
-        /*if (ActivityRecognitionResult.hasResult(intent)) {
+        if (ActivityRecognitionResult.hasResult(intent)) {
             val result = ActivityRecognitionResult.extractResult(intent)
             val mostProbableActivity = result.mostProbableActivity
             val activityType = mostProbableActivity.type
@@ -33,9 +35,9 @@ class ActivityTransitionReceiver: BroadcastReceiver() {
                 }
                 .show(999)
             // 필요한 작업 수행
-        }*/
+        }
 
-        if (ActivityTransitionResult.hasResult(intent)){
+        /*if (ActivityTransitionResult.hasResult(intent)){
             val result = ActivityTransitionResult.extractResult(intent)
             result?.let {
                 for (event in result.transitionEvents) {
@@ -79,7 +81,7 @@ class ActivityTransitionReceiver: BroadcastReceiver() {
 
                 }
             }
-        }
+        }*/
     }
 
     private fun getActivityName(activityType: Int): String {

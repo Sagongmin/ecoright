@@ -9,11 +9,12 @@ import com.google.android.gms.location.ActivityTransitionRequest
 import com.google.android.gms.location.DetectedActivity
 import pub.devrel.easypermissions.EasyPermissions
 object ActivityTransitionUtil {
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @RequiresApi(Build.VERSION_CODES.O)
     fun hasActivityTransitionPermission(context: Context) : Boolean =
         EasyPermissions.hasPermissions(
             context,
-            Manifest.permission.ACTIVITY_RECOGNITION
+            //Manifest.permission.ACTIVITY_RECOGNITION
+            "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
         )
 
     fun getTransitionRequest(): ActivityTransitionRequest{

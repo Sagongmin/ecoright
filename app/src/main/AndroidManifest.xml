@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!--<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />-->
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="33">
+        tools:targetApi="26">
         <activity
             android:name="com.example.myapplication.ui.theme.transaction.SellitemActivity"
             android:exported="true"
@@ -100,12 +100,10 @@
             android:name=".ui.theme.main.ActRcg"
             android:exported="true"
             android:theme="@style/Theme.AppCompat"
-            android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
             >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -115,7 +113,7 @@
             android:name="com.example.myapplication.ui.theme.main.receiver.ActivityTransitionReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="android.permission.ACTIVITY_RECOGNITION"
+            android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
             >
             <intent-filter>
                 <action android:name=".ui.theme.main.activity_intent_filter" />
