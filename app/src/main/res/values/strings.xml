@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="home_button_description">홈 정보</string>
+    <string name="co2_button_description">CO2 정보</string>
+
+
+</resources>
