@@ -123,6 +123,13 @@
             </intent-filter>
 
         </receiver>
+
+        <activity
+            android:name=".ui.theme.main.dailyGraphInfo"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
     </application>
 
 </manifest>

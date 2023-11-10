@@ -20,8 +20,6 @@ import timber.log.Timber
 
 class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private lateinit var client: ActivityRecognitionClient
-
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actrcg)
@@ -32,8 +30,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         findViewById<SwitchMaterial>(R.id.switchActivityTransition).setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                    !ActivityTransitionUtil.hasActivityTransitionPermission(context = this)
+                if(!ActivityTransitionUtil.hasActivityTransitionPermission(context = this)
                 ) {
                     findViewById<SwitchMaterial>(R.id.switchActivityTransition).isChecked = false
                     requestActivityTransitionPermission()
@@ -50,7 +47,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         requestForUpdates()
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
         if(EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
             AppSettingsDialog.Builder(this).build().show()
@@ -98,29 +95,48 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         client
             .removeActivityUpdates(getPendingIntent())
     }
-    private fun getPendingIntent(): PendingIntent? {
-        val intent = Intent(this, ActivityTransitionReceiver::class.java)
-        intent.action = "com.example.myapplication.ui.theme.main.activity_intent_filter"
-        return PendingIntent.getBroadcast(
-            this,
-            Constants.ACTIVITY_TRANSITION_REQUEST_CODE_RECEIVER,
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
-        )
+    private fun getPendingIntent(): PendingIntent {
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.P
+        ) {
+            val intent = Intent(this, ActivityTransitionReceiver::class.java)
+            intent.action = "com.example.myapplication.ui.theme.main.activity_intent_filter"
+            return PendingIntent.getBroadcast(
+                this,
+                Constants.ACTIVITY_TRANSITION_REQUEST_CODE_RECEIVER,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        } else {
+            val intent = Intent(this, ActivityTransitionReceiver::class.java)
+            intent.action = "com.example.myapplication.ui.theme.main.activity_intent_filter"
+            return PendingIntent.getBroadcast(
+                this,
+                Constants.ACTIVITY_TRANSITION_REQUEST_CODE_RECEIVER,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+            )
+        }
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     private fun requestActivityTransitionPermission() {
-
-        EasyPermissions.requestPermissions(
-            this,
-            "you need to allow activity transition permissions in order to use this feature.",
-            Constants.ACTIVITY_TRANSITION_REQUEST_CODE,
-            Manifest.permission.ACTIVITY_RECOGNITION,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.P
+        ) {
+            EasyPermissions.requestPermissions(
+                this,
+                "you need to allow activity transition permissions in order to use this feature.",
+                Constants.ACTIVITY_TRANSITION_REQUEST_CODE,
+                //Manifest.permission.ACTIVITY_RECOGNITION,
+                "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        } else {
+            EasyPermissions.requestPermissions(
+                this,
+                "you need to allow activity transition permissions in order to use this feature.",
+                Constants.ACTIVITY_TRANSITION_REQUEST_CODE,
+                Manifest.permission.ACTIVITY_RECOGNITION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        }
     }
-
-
-
 }
