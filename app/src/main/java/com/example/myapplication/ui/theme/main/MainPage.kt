@@ -99,6 +99,12 @@ class MainPage : AppCompatActivity() {
                 Log.w("DatabaseError", "loadPoints:onCancelled", error.toException())
             }
         })*/
+        
+        val camerabtn = findViewById<ImageView>(R.id.imagehomeButton)
+        camerabtn.setOnClickListener{
+            Toast.makeText(this, "카메라 클릭됨", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,ocrCamera::class.java))
+        }
 
         val imageViewButton = findViewById<ImageView>(R.id.co2Button)
         imageViewButton.setOnClickListener {
