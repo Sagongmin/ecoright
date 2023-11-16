@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#80C342"/> <!-- 버튼 배경색 -->
+    <corners android:radius="30dp"/> <!-- 모서리 둥근 정도 -->
+</shape>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/TR_btn"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:text="탄소배출권\n거래"
+        android:textSize="15sp"
+        />
+
+    <Button
+        android:id="@+id/CM_btn"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:text="커뮤니티"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:text="로그아웃(임시)"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/SE_btn"
+        android:layout_width="193dp"
+        android:layout_height="wrap_content"
+        android:text="기타 설정"
+        android:textSize="15sp" />
+</LinearLayout>
