@@ -94,4 +94,8 @@ dependencies {
     implementation("androidx.camera:camera-view:${camerax_version}")
     // If you want to additionally use the CameraX Extensions library
     implementation("androidx.camera:camera-extensions:${camerax_version}")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    // 응답 결과가 JSON일 때 객체로 변환해줌
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }
