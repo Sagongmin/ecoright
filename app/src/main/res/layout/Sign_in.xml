@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:text="@string/log_in"
+        android:text="Sign in"
         android:textAppearance="@style/log_in"
         android:gravity="top"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,45 +22,57 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:padding="12dp"
-        android:hint="Your Email"
-        android:layout_marginTop="80dp"
+        android:hint="Your Name"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintTop_toTopOf="@id/log_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    <EditText
+        android:id="@+id/email_editText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:hint="Your Email"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toTopOf="@id/log_in"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
     <EditText
         android:id="@+id/pass_editText"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:padding="12dp"
         android:hint="Your Password"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintTop_toTopOf="@id/id_editText"
+        app:layout_constraintTop_toTopOf="@id/log_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/loginbutton"
-        android:text="@string/log_in"
-        android:textAppearance="@style/log_in2"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="370dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintTop_toTopOf="@id/pass_editText"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/loginbutton"
+        android:gravity="center"
+        android:text="Sign in"
+        android:textAppearance="@style/log_in2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/loginbutton" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="300dp" />
 
     <TextView
         android:id="@+id/signinbutton"
-        android:text="@string/sign_in"
+        android:text="Back"
         android:textAppearance="@style/log_in2"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -72,22 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/loginbutton" />
 
-    <TextView
-        android:id="@+id/myTextViewButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="아이디/비밀번호 찾기"
-        android:textAppearance="@style/search_log2"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintTop_toTopOf="@id/signinbutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 
 
