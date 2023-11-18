@@ -35,7 +35,7 @@ class imageUploader(private val context: Context) {
 
         // Retrofit 인스턴스를 생성합니다.
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.200.109:5000")
+            .baseUrl("http://192.168.200.109:25565")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

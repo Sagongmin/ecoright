@@ -113,6 +113,13 @@ class MainPage : AppCompatActivity() {
             startActivity(Intent(this, dailyGraphInfo::class.java))
         }
 
+        val actRcgButton = findViewById<ImageView>(R.id.actRcg)
+       actRcgButton.setOnClickListener {
+            // 여기에 버튼 클릭 시 수행할 동작을 추가합니다.
+            Toast.makeText(this, "이미지 클릭됨", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, ActRcg::class.java))
+        }
+
         updateWalkingPoints()
     }
 
