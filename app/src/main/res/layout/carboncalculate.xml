@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/co2back"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="#CCE0B8"
+        android:layout_marginBottom="410dp"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/vector3"
+        android:layout_width="411dp"
+        android:layout_height="322dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/vector_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33.37dp"
+        android:text="@string/some_id"
+        android:textAppearance="@style/some_id"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/daily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/some_daily"
+        android:textAppearance="@style/echoment"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/ecolife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/some_eco"
+        android:textAppearance="@style/echoment"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="@id/daily"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/rectangle_1"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/daily"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:layout_marginLeft="130dp"
+            app:layout_constraintTop_toTopOf="@id/rectangle_1"
+            app:layout_constraintTop_toBottomof="@id/rectangle_1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toTopOf="@id/rectangle_1"
+            app:layout_constraintTop_toBottomof="@id/rectangle_1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/rectangle_2"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="290dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/daily"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:layout_marginLeft="130dp"
+            app:layout_constraintTop_toTopOf="@id/rectangle_1"
+            app:layout_constraintTop_toBottomof="@id/rectangle_1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toTopOf="@id/rectangle_1"
+            app:layout_constraintTop_toBottomof="@id/rectangle_1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="425dp"
+        android:background="@drawable/rectangle_1"
+        android:elevation="1dp"
+        app:layout_constraintTop_toTopOf="@id/daily"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="공과금에 고지서 입력하기"/>
+
+
+    <ImageView
+        android:id="@+id/flowerimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/tree1"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="195dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/menubar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/_markbackground"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/homebutton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="35dp"
+        app:srcCompat="@drawable/homebutton"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/co2button"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="100dp"
+        app:srcCompat="@drawable/baseline_co2_24"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/homebutton"/>
+
+    <ImageView
+        android:id="@+id/marketbutton"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="100dp"
+        app:srcCompat="@drawable/market"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/co2button"/>
+
+    <ImageView
+        android:id="@+id/optionbutton"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="100dp"
+        app:srcCompat="@drawable/option"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/marketbutton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
