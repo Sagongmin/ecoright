@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import android.widget.Toast
 import android.widget.EditText
+import android.widget.TextView
 import com.google.firebase.database.FirebaseDatabase
 
 
@@ -21,14 +22,14 @@ class search_id_pass : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_id)
+        setContentView(R.layout.search_in)
+        supportActionBar?.hide()
 
 
-
-        val findPasswordButton = findViewById<Button>(R.id.find_password_button)
+        val findPasswordButton = findViewById<TextView>(R.id.changePass)
         findPasswordButton.setOnClickListener {
 
-            val editTextPassword = findViewById<EditText>(R.id.id_input)
+            val editTextPassword = findViewById<EditText>(R.id.search_email)
             val newPassword = editTextPassword.text.toString()
 
             if (user != null) {
@@ -47,7 +48,7 @@ class search_id_pass : AppCompatActivity() {
     }
 
     private fun findPassword() {
-        val searchIdEditText = findViewById<EditText>(R.id.id_input)
+        val searchIdEditText = findViewById<EditText>(R.id.search_email)
         FirebaseAuth.getInstance().sendPasswordResetEmail(searchIdEditText.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

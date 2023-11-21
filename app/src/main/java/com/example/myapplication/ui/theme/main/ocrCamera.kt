@@ -38,6 +38,7 @@
             super.onCreate(savedInstanceState)
             viewBinding = CameraBinding.inflate(layoutInflater)
             setContentView(viewBinding.root)
+            supportActionBar?.hide()
 
             if (allPermissionsGranted()){
                 startCamera()

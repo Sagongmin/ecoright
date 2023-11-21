@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import android.widget.Toast
 import android.widget.EditText
+import android.widget.TextView
 
 import com.example.myapplication.ui.theme.login.join_membership
 import com.example.myapplication.ui.theme.home.mainMenu
@@ -27,27 +28,27 @@ class login : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_main)
+        setContentView(R.layout.login_home)
         supportActionBar?.hide()
 
 
         auth = FirebaseAuth.getInstance()
 
-        email_edittext = findViewById(R.id.editid)
-        password_edittext = findViewById(R.id.editpass)
+        email_edittext = findViewById(R.id.id_editText)
+        password_edittext = findViewById(R.id.pass_editText)
 
-        val goToJoinButton = findViewById<Button>(R.id.btn_joinMember)
+        val goToJoinButton = findViewById<TextView>(R.id.signinbutton)
 
         goToJoinButton.setOnClickListener {
             val intent = Intent(this, join_membership::class.java)
             startActivity(intent)
         }
-        val loginButton = findViewById<Button>(R.id.btn_login) // 로그인 버튼 ID로 수정 필요
+        val loginButton = findViewById<TextView>(R.id.loginbutton)
         loginButton.setOnClickListener {
             signinEmail()
         }
 
-        val goToSearchid = findViewById<Button>(R.id.btn_searchid)
+        val goToSearchid = findViewById<TextView>(R.id.search_id_pass)
 
         if (goToSearchid != null) {
             goToSearchid.setOnClickListener {
@@ -119,7 +120,7 @@ class login : AppCompatActivity(){
     fun moveMainPage(user:FirebaseUser?) {
         // 파이어베이스 유저 상태가 있을 경우 다음 페이지로 넘어갈 수 있음
         if(user != null) {
-            startActivity(Intent(this, com.example.myapplication.ui.theme.main.MainPage::class.java))
+            startActivity(Intent(this, mainMenu::class.java))
         }
     }
 

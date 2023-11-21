@@ -2,6 +2,14 @@
     <string name="app_name">My Application</string>
     <string name="home_button_description">홈 정보</string>
     <string name="co2_button_description">CO2 정보</string>
-
-
+    <string name="log_in">Log in </string>
+    <string name="your_email">Your Email </string>
+    <string name="sign_in">회원가입 </string>
+    <string name="some_id">사공민님, 오늘도 화이팅입니다.</string>
+    <string name="some_daily">Daily</string>
+    <string name="some_eco">Eco Life</string>
+    <string name="whatismypoint">나의 에코 포인트는? </string>
+    <string name="sumco2">CO2 합계</string>
+    <string name="outcomeco2">CO2 발생량</string>>
+    <string name="needtree">필요 소나무</string>
 </resources>

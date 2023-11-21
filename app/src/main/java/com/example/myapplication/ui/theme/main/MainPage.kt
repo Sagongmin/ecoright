@@ -31,7 +31,6 @@ class MainPage : AppCompatActivity() {
     private val maxPoints = 500 // 최대 포인트 설정
     private val pointsPerMinute = 10 // 분당 포인트 설정
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()

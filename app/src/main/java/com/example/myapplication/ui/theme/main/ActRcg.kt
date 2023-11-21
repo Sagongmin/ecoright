@@ -23,6 +23,7 @@ class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actrcg)
+        supportActionBar?.hide()
 
         client = ActivityRecognition.getClient(this)
 
