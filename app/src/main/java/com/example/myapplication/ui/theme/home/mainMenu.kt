@@ -94,7 +94,9 @@ class mainMenu : AppCompatActivity(){
         }
 
         goToco2Button.setOnClickListener {//co2 관련 버튼
-            
+            val intent = Intent(this, co2Calculate::class.java)
+            startActivity(intent)
+            finish()
         }
 
         goTomarketButton.setOnClickListener{//마켓 거래 관련 버튼
