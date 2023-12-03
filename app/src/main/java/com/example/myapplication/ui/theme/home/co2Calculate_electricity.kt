@@ -3,6 +3,7 @@ package com.example.myapplication.ui.theme.home
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
@@ -14,10 +15,11 @@ class co2Calculate_electricity : AppCompatActivity(){
         setContentView(R.layout.carboncalculate_electricity)
         supportActionBar?.hide()
 
-        val goTohomeButton = findViewById<ImageView>(R.id.homebutton)
-        val goToco2Button = findViewById<ImageView>(R.id.co2button)
-        val goTomarketButton = findViewById<ImageView>(R.id.marketbutton)
-        val goToOptionButton = findViewById<ImageView>(R.id.optionbutton)
+
+        val backBtn = findViewById<ImageView>(R.id.electricity_vectorback)
+        val backsentencebtn = findViewById<TextView>(R.id.electricity_return_btn)
+        val gasbtn = findViewById<TextView>(R.id.gas)
+        val waterbtn = findViewById<TextView>(R.id.water)
 
         val camerabtn = findViewById<ImageView>(R.id.electricity_cameravector)
         camerabtn.setOnClickListener{
@@ -25,24 +27,30 @@ class co2Calculate_electricity : AppCompatActivity(){
             startActivity(Intent(this, ocrCamera::class.java))
         }
 
-        goTohomeButton.setOnClickListener {//홈버튼
-            val intent = Intent(this, mainMenu::class.java)
-            startActivity(intent)
-            finish()
-        }
 
-        goToco2Button.setOnClickListener {//co2 관련 버튼
+
+        backBtn.setOnClickListener {
             val intent = Intent(this, co2Calculate::class.java)
             startActivity(intent)
             finish()
         }
 
-        goTomarketButton.setOnClickListener{//마켓 거래 관련 버튼
-
+        backsentencebtn.setOnClickListener {
+            val intent = Intent(this, co2Calculate::class.java)
+            startActivity(intent)
+            finish()
         }
 
-        goToOptionButton.setOnClickListener{//기타 설정 버튼
+        gasbtn.setOnClickListener {
+            val intent = Intent(this, co2Calculate_gas::class.java)
+            startActivity(intent)
+            finish()
+        }
 
+        waterbtn.setOnClickListener {
+            val intent = Intent(this, co2Calculate_water::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

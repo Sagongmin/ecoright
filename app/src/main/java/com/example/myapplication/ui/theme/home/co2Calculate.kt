@@ -44,11 +44,15 @@ class co2Calculate : AppCompatActivity() {
 
         val goTocalBtn = findViewById<Button>(R.id.button_1)
 
+
+
         goTocalBtn.setOnClickListener {
             val intent = Intent(this, co2Calculate_electricity::class.java)
             startActivity(intent)
             finish()
         }
+
+
 
         val goTohomeButton = findViewById<ImageView>(R.id.homebutton)
         val goToco2Button = findViewById<ImageView>(R.id.co2button)
