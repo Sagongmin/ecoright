@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import android.widget.EditText
 import android.widget.TextView
+import com.example.myapplication.ui.theme.home.co2Calculate
 
 import com.example.myapplication.ui.theme.login.join_membership
 import com.example.myapplication.ui.theme.home.mainMenu
@@ -30,6 +31,9 @@ class markethome:AppCompatActivity() {
 
         val product1Button = findViewById<View>(R.id.product1)
         val searchButton = findViewById<ImageView>(R.id.magnifierview)
+        val goTohomeButton = findViewById<ImageView>(R.id.homebutton)
+        val goToco2Button = findViewById<ImageView>(R.id.co2button)
+        val goToOptionButton = findViewById<ImageView>(R.id.optionbutton)
 
 
         product1Button.setOnClickListener {
@@ -41,6 +45,21 @@ class markethome:AppCompatActivity() {
             val intent = Intent(this, maketsearch::class.java)
             startActivity(intent)
         }
+
+
+        goTohomeButton.setOnClickListener {//홈버튼
+            val intent = Intent(this, mainMenu::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        goToco2Button.setOnClickListener {//co2 관련 버튼
+            val intent = Intent(this, co2Calculate::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
     }
 
 

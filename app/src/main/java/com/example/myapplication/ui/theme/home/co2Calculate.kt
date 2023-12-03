@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.ui.theme.market.markethome
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -67,6 +68,9 @@ class co2Calculate : AppCompatActivity() {
         }
 
         goTomarketButton.setOnClickListener{//마켓 거래 관련 버튼
+            val intent = Intent(this, markethome::class.java)
+            startActivity(intent)
+            finish()
 
         }
 
