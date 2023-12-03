@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,111 +18,77 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="33">
+
         <activity
-            android:name="com.example.myapplication.ui.theme.transaction.SellitemActivity"
+            android:name=".ui.theme.transaction.SellitemActivity"
             android:exported="true"
             android:label="Sell_Item"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.transaction.BuyitemActivity"
             android:exported="true"
             android:label="Buy_Item"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
+            android:theme="@style/Theme.AppCompat"/>
 
         <activity
-            android:name=".ui.theme.login.login"
+            android:name=".ui.theme.login.test"
             android:exported="true"
             android:label="login"
-            android:theme="@style/Theme.AppCompat"
-            >
+            android:theme="@style/Theme.AppCompat">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
         </activity>
+
 
         <activity
             android:name=".ui.theme.login.join_membership"
             android:exported="true"
             android:label="join"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.home.mainMenu"
             android:exported="true"
             android:label="homemenu"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.login.search_id_pass"
             android:exported="true"
             android:label="search_id_pass"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.community.ListActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.community.DetailActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.community.RegisterActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.main.MainPage"
             android:exported="true"
             android:label="MainPage"
-            android:theme="@style/Theme.AppCompat"
-            >
-        </activity>
-
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".ui.theme.main.ActRcg"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat"
             android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
-            >
-
-
-
-        </activity>
+            android:theme="@style/Theme.AppCompat"/>
 
         <receiver
-            android:name="com.example.myapplication.ui.theme.main.receiver.ActivityTransitionReceiver"
+            android:name=".ui.theme.main.receiver.ActivityTransitionReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="android.permission.ACTIVITY_RECOGNITION"
-            >
+            android:permission="android.permission.ACTIVITY_RECOGNITION">
             <intent-filter>
                 <action android:name=".ui.theme.main.activity_intent_filter" />
             </intent-filter>
-
         </receiver>
     </application>
 

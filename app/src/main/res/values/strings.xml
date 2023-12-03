@@ -12,7 +12,8 @@
     <string name="sumco2">CO2 합계</string>
     <string name="outcomeco2">CO2 발생량</string>>
     <string name="needtree">필요 소나무</string>
-
+    <string name="title_activity_test2">test2</string>
+    <string name="title_activity_test">test</string>
 
 
 </resources>

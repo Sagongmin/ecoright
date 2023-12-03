@@ -37,7 +37,7 @@
     </style>
 
     <style name="whatisyourpoint">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">-0.09</item>
         <item name="android:textColor">#000000</item>
     </style>
@@ -55,9 +55,15 @@
     </style>
 
     <style name="needtree">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:letterSpacing">-0.09</item>
         <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="purchase">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">-0.09</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>
