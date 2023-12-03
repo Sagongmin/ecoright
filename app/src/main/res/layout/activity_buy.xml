@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.theme.transaction.BuyitemActivityActivity">
+
+    <!-- 하나의 레이아웃 루트 엘리먼트만 사용합니다. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- RecyclerView를 감싸는 LinearLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
+
+        <!-- "판매 화면으로 이동" 버튼 -->
+        <Button
+            android:id="@+id/goToSellButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="판매 화면으로 이동"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+</layout>

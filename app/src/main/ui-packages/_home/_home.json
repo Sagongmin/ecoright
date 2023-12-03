@@ -1,0 +1,816 @@
+{
+  "name": "_home",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "lBmGST6lOuY6lTTWAe9Xv6",
+    "node": "334:193",
+    "version": "4526444793",
+    "component-id": "248798525b9e5376bc68d11a22dc3b50c0887955"
+  },
+  "default": "\bHome",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Menu"
+      },
+      {
+        "type": "group",
+        "id": "EcoPointGroup"
+      },
+      {
+        "type": "group",
+        "id": "\bdonutgraph"
+      },
+      {
+        "type": "group",
+        "id": "point"
+      },
+      {
+        "type": "vector",
+        "id": "\bMarkBackground"
+      },
+      {
+        "type": "vector",
+        "id": "Homebutton"
+      },
+      {
+        "type": "vector",
+        "id": "CarbonCalculate"
+      },
+      {
+        "type": "vector",
+        "id": "Option"
+      },
+      {
+        "type": "vector",
+        "id": "Market"
+      },
+      {
+        "type": "vector",
+        "id": "\bEcopointBackground"
+      },
+      {
+        "type": "text",
+        "id": "사공민님, 오늘도 화이팅입니다."
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      },
+      {
+        "type": "text",
+        "id": "Daily"
+      },
+      {
+        "type": "text",
+        "id": "Eco Life"
+      },
+      {
+        "type": "image",
+        "id": "flowerimage"
+      },
+      {
+        "type": "vector",
+        "id": "outEllipse"
+      },
+      {
+        "type": "vector",
+        "id": "innerEllipse"
+      },
+      {
+        "type": "vector",
+        "id": "innergraph"
+      },
+      {
+        "type": "text",
+        "id": "40%"
+      },
+      {
+        "type": "text",
+        "id": "155 P"
+      },
+      {
+        "type": "text",
+        "id": "of your goal"
+      },
+      {
+        "type": "text",
+        "id": "5450 P"
+      },
+      {
+        "type": "text",
+        "id": "나의 에코 포인트는?"
+      },
+      {
+        "type": "image",
+        "id": "pointimage"
+      }
+    ],
+    "modes": {
+      "\bHome": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Menu",
+              "EcoPointGroup",
+              "\bdonutgraph",
+              "point"
+            ],
+            "background-color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            }
+          },
+          {
+            "id": "Menu",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "740.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "360.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "60.6741943359375"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "\bMarkBackground",
+              "Homebutton",
+              "CarbonCalculate",
+              "Option",
+              "Market"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "EcoPointGroup",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "360.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "312.471923828125"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "\bEcopointBackground",
+              "사공민님, 오늘도 화이팅입니다.",
+              "Vector",
+              "Daily",
+              "Eco Life",
+              "flowerimage"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "\bdonutgraph",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "18.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "336.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "324.0370788574219"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "324.0"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "outEllipse",
+              "innerEllipse",
+              "innergraph",
+              "40%",
+              "155 P",
+              "of your goal"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "point",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "11.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "261.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "325.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "30.0"
+              }
+            },
+            "is-structured": "false",
+            "children": [
+              "5450 P",
+              "나의 에코 포인트는?",
+              "pointimage"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "\bMarkBackground",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "-0.0999755859375"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "360.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "60.6741943359375"
+              }
+            },
+            "vector-content": "_mark_background.svg"
+          },
+          {
+            "id": "Homebutton",
+            "margin": {
+              "left": "24.2696533203125",
+              "top": "23.2584228515625",
+              "right": "312.471923828125",
+              "bottom": "14.1573486328125"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "homebutton.svg"
+          },
+          {
+            "id": "CarbonCalculate",
+            "margin": {
+              "left": "111.2359619140625",
+              "top": "26.2921142578125",
+              "right": "222.47189331054688",
+              "bottom": "16.1798095703125"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "carbon_calculate.svg"
+          },
+          {
+            "id": "Option",
+            "margin": {
+              "left": "299.3258361816406",
+              "top": "28.5673828125",
+              "right": "32.233154296875",
+              "bottom": "26.4185791015625"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "option.svg"
+          },
+          {
+            "id": "Market",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "201.2359619140625"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "19.971923828125"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "28.314605712890625"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "26.544921875"
+              }
+            },
+            "vector-content": "market.svg"
+          },
+          {
+            "id": "\bEcopointBackground",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "360.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "241.6854248046875"
+              }
+            },
+            "vector-content": "_ecopoint_background.svg"
+          },
+          {
+            "id": "사공민님, 오늘도 화이팅입니다.",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "13.14605712890625"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "33.3707275390625"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "334.7191162109375"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "26.2921142578125"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "사공민님, 오늘도 화이팅입니다.",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "letter-spacing": "-1.9",
+            "line-height": "1.4850000381469726",
+            "typeface": "Mplus 1p Bold"
+          },
+          {
+            "id": "Vector",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "91.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "358.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "155.0"
+              }
+            },
+            "vector-content": "vector.svg"
+          },
+          {
+            "id": "Daily",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "24.2696533203125"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "131.460693359375"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "248.7640380859375"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "132.471923828125"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Daily",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "48.0",
+            "letter-spacing": "-4.5600000000000005",
+            "line-height": "1.0416666412353515",
+            "typeface": "Mplus 1p Bold"
+          },
+          {
+            "id": "Eco Life",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "24.2696533203125"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "180.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "248.7640380859375"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "132.471923828125"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "Eco Life",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "48.0",
+            "letter-spacing": "-4.5600000000000005",
+            "line-height": "1.0416666412353515",
+            "typeface": "Mplus 1p Bold"
+          },
+          {
+            "id": "flowerimage",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "144.60675048828125"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "95.05615234375"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "215.3932647705078"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "146.629150390625"
+              }
+            },
+            "image-content": "flowerimage.png",
+            "scale": "cover"
+          },
+          {
+            "id": "outEllipse",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.0185394287109375"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "0.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "324.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "324.0"
+              }
+            },
+            "vector-content": "out_ellipse.svg"
+          },
+          {
+            "id": "innerEllipse",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.5185394287109375"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "51.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "223.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "223.0"
+              }
+            },
+            "vector-content": "inner_ellipse.svg"
+          },
+          {
+            "id": "innergraph",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "164.5"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "0.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "159.53707885742188"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "273.0"
+              }
+            },
+            "vector-content": "innergraph.svg"
+          },
+          {
+            "id": "40%",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.0185394287109375"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "10.61798095703125"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "72.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "21.2359619140625"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "40%",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "20.0",
+            "letter-spacing": "-1.9",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "155 P",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.5185394287109375"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "-31.38201904296875"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "83.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "21.2359619140625"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "155 P",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "32.0",
+            "letter-spacing": "-3.04",
+            "line-height": "1.2102272510528564",
+            "typeface": "Inter"
+          },
+          {
+            "id": "of your goal",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.5185394287109375"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "188.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.7529411764705882"
+            },
+            "text-content": "of your goal",
+            "overflow": "visible",
+            "text-size": "20.0",
+            "letter-spacing": "-1.9",
+            "line-height": "1.2102272033691406",
+            "typeface": "Inter"
+          },
+          {
+            "id": "5450 P",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "131.5"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "0.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "62.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "30.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.0"
+            },
+            "text-content": "5450 P",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "20.0",
+            "letter-spacing": "-1.9",
+            "line-height": "1.4850000381469726",
+            "typeface": "Mplus 1p Bold"
+          },
+          {
+            "id": "나의 에코 포인트는?",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "35.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "6.0"
+              }
+            },
+            "font-weight": "700.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "0.3333333333333333"
+            },
+            "text-content": "나의 에코 포인트는? ",
+            "overflow": "visible",
+            "text-align": "left",
+            "text-size": "12.0",
+            "letter-spacing": "-1.1400000000000001",
+            "line-height": "1.4849999745686846",
+            "typeface": "Mplus 1p Bold"
+          },
+          {
+            "id": "pointimage",
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "2.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "27.0"
+              }
+            },
+            "image-content": "pointimage.png",
+            "scale": "cover"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "\bHome",
+      "size": {
+        "width": 360.0,
+        "height": 800.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}

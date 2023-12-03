@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "216753747701",
+    "project_id": "eco-right",
+    "storage_bucket": "eco-right.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216753747701:android:5270fe9ca68c0716d977bc",
+        "android_client_info": {
+          "package_name": "com.complete.ecoright"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqXd0bd-JRj0-FW2_jyTGVJ928rNHr35M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216753747701:android:e3e42ad1b2019151d977bc",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqXd0bd-JRj0-FW2_jyTGVJ928rNHr35M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
