@@ -20,6 +20,7 @@ import timber.log.Timber
 
 class ActRcg : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private lateinit var client: ActivityRecognitionClient
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actrcg)

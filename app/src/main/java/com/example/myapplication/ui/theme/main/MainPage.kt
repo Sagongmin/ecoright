@@ -24,7 +24,7 @@ import java.util.Date
 import java.util.Locale
 
 
-class MainPage : AppCompatActivity() {
+class MainPage : AppCompatActivity(){
 
     private lateinit var greetingTextView: TextView
     private lateinit var pieChart: PieChart

@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.theme.login
 
 
+import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
 import android.os.Bundle
 import android.widget.Button
@@ -27,6 +28,7 @@ class search_id_pass : AppCompatActivity() {
 
 
         val findPasswordButton = findViewById<TextView>(R.id.changePass)
+        val cancleButton = findViewById<TextView>(R.id.cancel_button)
         findPasswordButton.setOnClickListener {
 
             val editTextPassword = findViewById<EditText>(R.id.search_email)
@@ -44,6 +46,12 @@ class search_id_pass : AppCompatActivity() {
                         }
                     }
             }
+        }
+
+        cancleButton.setOnClickListener {
+            val intent = Intent(this, login::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

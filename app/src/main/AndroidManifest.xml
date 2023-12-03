@@ -150,6 +150,20 @@
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
+
+        <activity
+            android:name=".ui.theme.home.co2Calculate"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.home.co2Calculate_electricity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
     </application>
 
 </manifest>

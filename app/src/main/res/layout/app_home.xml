@@ -7,78 +7,77 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/category_01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/category_01"
         tools:ignore="MissingConstraints">
 
         <View
             android:id="@+id/ecoback"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="560dp"
+            android:layout_width="361dp"
+            android:layout_height="173dp"
             android:background="#FFE9E9"
             android:gravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/vector"
+            app:layout_constraintEnd_toEndOf="@+id/vector"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/vector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vector" />
+        <ImageView
+            android:id="@+id/vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/vector" />
 
-    <ImageView
-        android:id="@+id/flowerimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/flowerimage" />
+        <ImageView
+            android:id="@+id/flowerimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/flowerimage" />
 
-    <TextView
-        android:id="@+id/some_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="top"
-        android:text="@string/some_id"
-        android:textAppearance="@style/some_id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="top"
+            android:text="@string/some_id"
+            android:textAppearance="@style/some_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/daily"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="40dp"
-        android:gravity="top"
-        android:text="@string/some_daily"
-        android:textAppearance="@style/echoment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:gravity="top"
+            android:text="@string/some_daily"
+            android:textAppearance="@style/echoment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/ecolife"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="50dp"
-        android:gravity="top"
-        android:text="@string/some_eco"
-        android:textAppearance="@style/echoment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/daily" />
+        <TextView
+            android:id="@+id/ecolife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
+            android:gravity="top"
+            android:text="@string/some_eco"
+            android:textAppearance="@style/echoment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/daily" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -114,6 +113,18 @@
         android:textAppearance="@style/whatisyourpoint"
         app:layout_constraintStart_toEndOf="@id/whatismypoint"
         app:layout_constraintTop_toTopOf="@+id/category_01" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchActivityTransition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="행동 인식 활성화"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/category_01"/>
 
     <ImageView
         android:id="@+id/menubar"
@@ -173,6 +184,52 @@
         app:layout_constraintStart_toStartOf="@id/marketbutton"
         app:layout_constraintTop_toTopOf="@id/menubar"
         app:srcCompat="@drawable/option" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="날짜 입력됨"
+        android:text="임시 텍스트"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:paddingTop="350dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pieChart"
+        app:layout_constraintVertical_bias="0.5"
+        ></TextView>
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/prevButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pieChart"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.2"
+        android:src="@drawable/rightarrow"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        ></ImageView>
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/nextButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pieChart"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.8"
+        android:src="@drawable/leftarrow"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        ></ImageView>
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
