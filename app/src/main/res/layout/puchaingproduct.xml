@@ -260,7 +260,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideleft"
         app:layout_constraintEnd_toEndOf="@+id/guideright"
         app:layout_constraintTop_toTopOf="@+id/guideup"
-        android:layout_marginBottom="@+id/guidedown"/>
+        app:layout_constraintBottom_toBottomOf="@+id/guidedown" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

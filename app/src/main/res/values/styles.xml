@@ -66,4 +66,5 @@
         <item name="android:letterSpacing">-0.09</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
 </resources>

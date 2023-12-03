@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="option"
+        android:textAppearance="@style/echoment"
+        android:gravity="top"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <View
+        android:id="@+id/upperline1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_marginTop="110dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/upperline2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="@+id/upperline1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/upperline3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="@+id/upperline2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/upperline4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="@+id/upperline3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/downimageview"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="130dp"
+        android:src="@drawable/mdi_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/changenickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 계정 관리"
+        android:textAppearance="@style/search_log"
+        android:gravity="top"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/downimageview" />
+
+    <TextView
+        android:id="@+id/changepassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="패스워드 변경"
+        android:textAppearance="@style/search_log"
+        android:gravity="top"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@+id/upperline2"
+        app:layout_constraintStart_toStartOf="@+id/downimageview" />
+
+    <TextView
+        android:id="@+id/myaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임 변경"
+        android:textAppearance="@style/search_log"
+        android:gravity="top"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@+id/upperline3"
+        app:layout_constraintStart_toStartOf="@+id/downimageview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
