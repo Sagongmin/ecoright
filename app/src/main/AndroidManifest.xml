@@ -164,6 +164,41 @@
             android:theme="@style/Theme.AppCompat"
             >
         </activity>
+
+        <activity
+            android:name=".ui.theme.home.co2Calculate_water"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.home.co2Calculate_gas"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.market.markethome"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.market.maketsearch"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.theme.market.marketiphone"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            >
+        </activity>
     </application>
 
 </manifest>

@@ -76,6 +76,7 @@
             android:layout_marginEnd="20dp" />
 
         <TextView
+            android:id="@+id/water_E_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전기"
@@ -84,6 +85,7 @@
             android:layout_marginStart="30dp"/>
 
         <TextView
+            android:id="@+id/water_G_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가스"
@@ -92,6 +94,7 @@
             android:layout_marginStart="30dp"/>
 
         <TextView
+            android:id="@+id/water_W_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="수도"
@@ -129,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:text="요금"
+            android:text="사용량 (권장) "
             android:textAppearance="@style/needtree" />
 
         <EditText
@@ -140,7 +143,6 @@
             android:layout_marginTop="10dp"
             android:textSize="17dp"
             android:hint="둘 중 하나만 입력하세요"
-            android:textDirection="rtl"
             android:backgroundTint="@color/gray"
             android:textAppearance="@style/needtree"
             android:textColorHint="#d0d0d0"
@@ -152,7 +154,7 @@
             android:layout_height="25dp"
             android:layout_marginStart="270dp"
             android:layout_marginTop="20dp"
-            android:text="원"
+            android:text="㎥"
             android:textAppearance="@style/needtree"
             android:textColor="@color/black" />
 
@@ -161,7 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="85dp"
-            android:text="사용량"
+            android:text="요금"
             android:textAppearance="@style/needtree" />
 
         <EditText
@@ -183,7 +185,7 @@
             android:layout_height="25dp"
             android:layout_marginStart="270dp"
             android:layout_marginTop="85dp"
-            android:text="㎥"
+            android:text="원"
             android:textAppearance="@style/needtree"
             android:textColor="@color/black" />
 
@@ -239,7 +241,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/indivisual_sumco2"
+            android:text="@string/indivisual_water_co2"
             android:textAppearance="@style/sumco2"
             android:textSize="20dp"
             android:layout_marginBottom="115dp"
@@ -333,6 +335,7 @@
             android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/water_tree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="230dp"
@@ -344,6 +347,7 @@
             />
 
         <TextView
+            android:id="@+id/water_carbon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -354,6 +358,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/water_total_tree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0 개"
@@ -365,6 +370,7 @@
             />
 
         <TextView
+            android:id="@+id/water_total_carbon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0 KG"

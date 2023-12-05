@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <View
+        android:id="@+id/rectangle_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#F1F1F1"
+        app:layout_constraintTop_toTopOf="@+id/guideupper"
+        app:layout_constraintBottom_toBottomOf="@+id/guidedowner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/product1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle_9"
+        app:layout_constraintBottom_toBottomOf="@+id/guidedown"
+        app:layout_constraintEnd_toEndOf="@+id/guideright"
+        app:layout_constraintStart_toStartOf="@+id/guideleft"
+        app:layout_constraintTop_toTopOf="@+id/guideup" />
+
+
+    <View
+        android:id="@+id/rectangle_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle_6"
+        app:layout_constraintBottom_toBottomOf="@+id/guidebutton2"
+        app:layout_constraintEnd_toEndOf="@+id/guideright"
+        app:layout_constraintStart_toStartOf="@+id/guideleft"
+        app:layout_constraintTop_toTopOf="@+id/guidebutton1"/>
+
+    <View
+        android:id="@+id/rectangle_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle_6"
+        app:layout_constraintBottom_toBottomOf="@+id/guidebutton4"
+        app:layout_constraintEnd_toEndOf="@+id/guideright"
+        app:layout_constraintStart_toStartOf="@+id/guideleft"
+        app:layout_constraintTop_toTopOf="@+id/guidebutton3"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideupper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidedowner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="130dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidedown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="220dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidebutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="160dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidebutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="130dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidebutton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="120dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidebutton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="90dp" />
+
+
+    <ImageView
+        android:id="@+id/menubar"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:srcCompat="@drawable/_markbackground"
+        android:scaleType="fitXY"
+        android:background="#FFFFFF"/>
+
+
+    <ImageView
+        android:id="@+id/homebutton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:srcCompat="@drawable/homebutton" />
+
+    <ImageView
+        android:id="@+id/co2button"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/homebutton"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:srcCompat="@drawable/baseline_co2_24" />
+
+    <ImageView
+        android:id="@+id/marketbutton"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/co2button"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:srcCompat="@drawable/market" />
+
+    <ImageView
+        android:id="@+id/optionbutton"
+        android:layout_width="36dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menubar"
+        app:srcCompat="@drawable/option" />
+
+
+    <TextView
+        android:id="@+id/product1_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="30000P"
+        android:textAppearance="@style/whatisyourpoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidedown" />
+
+    <TextView
+        android:id="@+id/product1_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="아이폰"
+        android:textAppearance="@style/whatisyourpoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidedown"/>
+
+
+    <TextView
+        android:id="@+id/product2_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="구매"
+        android:textAppearance="@style/purchase"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidebutton1" />
+
+    <TextView
+        android:id="@+id/product2_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="취소"
+        android:textAppearance="@style/purchase"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidebutton3"/>
+
+    <TextView
+        android:id="@+id/whatismypoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/whatismypoint"
+        android:textAppearance="@style/whatisyourpoint"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="@id/guideupper"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:text="312 Pt"
+        android:textAppearance="@style/whatisyourpoint"
+        android:gravity="top"
+        app:layout_constraintTop_toTopOf="@id/guideupper"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iphoneimageview"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/iphoneimage"
+        android:textAppearance="@style/whatisyourpoint"
+        app:layout_constraintStart_toStartOf="@+id/guideleft"
+        app:layout_constraintEnd_toEndOf="@+id/guideright"
+        app:layout_constraintTop_toTopOf="@+id/guideup"
+        app:layout_constraintBottom_toBottomOf="@+id/guidedown"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

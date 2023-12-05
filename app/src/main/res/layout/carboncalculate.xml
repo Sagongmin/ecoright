@@ -95,10 +95,12 @@
                 android:textColor="@color/black"
                 />
             <TextView
+                android:id="@+id/stack_walking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="0:00:00"
-                android:textSize="30sp"
+                android:hint="00:00:00"
+                android:textColorHint="@color/black"
+                android:textSize="25sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
@@ -134,8 +136,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:hint="0:00:00"
-                android:textSize="30sp"
+                android:hint="00:00:00"
+                android:textColorHint="@color/black"
+                android:textSize="25sp"
                 android:textColor="@color/black"
                 />
         </LinearLayout>
@@ -165,6 +168,7 @@
                 />
 
             <TextView
+                android:id="@+id/lowerCarbon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0Kg"

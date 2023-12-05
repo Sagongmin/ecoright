@@ -18,6 +18,7 @@ import com.example.myapplication.R
 import com.example.myapplication.ui.theme.main.receiver.ActivityTransitionReceiver
 import com.example.myapplication.ui.theme.main.util.ActivityTransitionUtil
 import com.example.myapplication.ui.theme.main.util.Constants
+import com.example.myapplication.ui.theme.market.markethome
 import com.example.myapplication.ui.theme.transaction.SellitemActivity
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -43,8 +44,6 @@ import java.util.Date
 import java.util.Locale
 
 class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
-
-    private var walkingTimeListenerRegistered = false
 
     private var currentDate: Calendar = Calendar.getInstance()
     private lateinit var client: ActivityRecognitionClient
@@ -98,23 +97,30 @@ class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
             }
         })
 
-        val pointsReference = FirebaseDatabase.getInstance().getReference("users/$userId/walkingTimeDates")
-        pointsReference.addValueEventListener(object : ValueEventListener {
+        val dailyPointsRef = FirebaseDatabase.getInstance().getReference("users/$userId/dailyPoints/$date")
+        val totalPointsRef = FirebaseDatabase.getInstance().getReference("users/$userId/totalPoints")
+        totalPointsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // 이 부분은 데이터가 변경될 때마다 호출됩니다.
-                val allPoints = snapshot.getValue(object : GenericTypeIndicator<HashMap<String, Int>>() {})
-                allPoints?.let {
-                    val walkingTimeMillis =  it[date] ?: 0  //임시로 오늘 걸음으로 얻은 포인트 나타냄
-                    // 밀리초를 분으로 변환합니다.
-                    val walkingTimeMinutes = walkingTimeMillis / 1000 / 60
-                    val todayWalkingTimePoints = walkingTimeMinutes*pointsPerMinute
-                    val point = findViewById<TextView>(R.id.point)
-                    point.text = "${todayWalkingTimePoints}pt"
-                    setupPieChart(todayWalkingTimePoints,maxPoints)
-                }
+                // Firebase에서 계산된 포인트 값을 가져와서 표시합니다.
+                val points = snapshot.getValue(Int::class.java) ?: 0
+                val pointTextView = findViewById<TextView>(R.id.point)
+                pointTextView.text = "${points}pt"
             }
 
+            override fun onCancelled(error: DatabaseError) {
+                // 데이터 가져오기 실패
+                Log.w("DatabaseError", "loadPoints:onCancelled", error.toException())
+            }
+        })
 
+        dailyPointsRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // Firebase에서 계산된 포인트 값을 가져와서 표시합니다.
+                val dailyPoints = snapshot.getValue(Int::class.java) ?: 0
+                setupPieChart(dailyPoints, maxPoints)
+                setupPieChart(dailyPoints, maxPoints)
+                updatePieChart(dailyPoints)
+            }
 
             override fun onCancelled(error: DatabaseError) {
                 // 데이터 가져오기 실패
@@ -157,15 +163,14 @@ class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
         }
 
         goTomarketButton.setOnClickListener{//마켓 거래 관련 버튼
-            
+            val intent = Intent(this, markethome::class.java)
+            startActivity(intent)
+            finish()
         }
 
         goToOptionButton.setOnClickListener{//기타 설정 버튼
             
         }
-
-        lastWalkingTimeMinutes = 0 // 초기화
-        setupWalkingTimeListener()
     }
 
     private fun updateDateDisplay() {
@@ -184,6 +189,7 @@ class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val dailyPoints = snapshot.getValue(Int::class.java) ?: 0
                 updatePieChart(dailyPoints) // PieChart 업데이트
+                setupPieChart(dailyPoints, maxPoints)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -199,81 +205,11 @@ class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
         pieChart.setHoleColor(Color.WHITE)
         pieChart.holeRadius = 80f
         pieChart.transparentCircleRadius = 80f
-        pieChart.centerText = "일일 한도 크레딧\n$todayWalkingTimePoints"+"/"+"$maxPoints"
+        pieChart.centerText = "일일 한도 포인트\n$todayWalkingTimePoints"+"/"+"$maxPoints"
         pieChart.legend.isEnabled = false
         pieChart.isRotationEnabled = false
         pieChart.isHighlightPerTapEnabled = false
         // 기타 차트 설정...
-    }
-
-    private var lastWalkingTimeMinutes: Int = -1
-
-    private fun setupWalkingTimeListener() {
-
-        if (walkingTimeListenerRegistered) return
-
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-        val walkingTimeRef = FirebaseDatabase.getInstance().getReference("users/$userId/walkingTimeDates/$date")
-
-        walkingTimeRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val walkingTimeMillis = snapshot.getValue(Int::class.java) ?: 0
-                val walkingTimeMinutes = walkingTimeMillis / 1000 / 60
-                if (lastWalkingTimeMinutes == -1) {
-                    // 처음 실행 시 현재 걸음 시간으로 초기화
-                    lastWalkingTimeMinutes = walkingTimeMinutes
-                } else if (walkingTimeMinutes != lastWalkingTimeMinutes) {
-                    val additionalMinutes = walkingTimeMinutes - lastWalkingTimeMinutes
-                    updateWalkingPoints(additionalMinutes)
-                    lastWalkingTimeMinutes = walkingTimeMinutes
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // 오류 처리
-            }
-        })
-
-        walkingTimeListenerRegistered = true
-    }
-
-    private fun updateWalkingPoints(additionalMinutes: Int) {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-        val dailyPointsRef = FirebaseDatabase.getInstance().getReference("users/$userId/dailyPoints/$date")
-        val totalPointsRef = FirebaseDatabase.getInstance().getReference("users/$userId/totalPoints")
-
-        dailyPointsRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dailySnapshot: DataSnapshot) {
-                val currentDailyPoints = dailySnapshot.getValue(Int::class.java) ?: 0
-                val additionalPoints = (additionalMinutes * pointsPerMinute).coerceAtMost(maxPoints)
-                val newTotalPoints = currentDailyPoints + additionalPoints
-
-                if (newTotalPoints <= maxPoints) {
-                    dailyPointsRef.setValue(newTotalPoints)
-
-                    totalPointsRef.runTransaction(object : Transaction.Handler {
-                        override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                            var totalPoints = mutableData.getValue(Int::class.java) ?: 0
-                            totalPoints += additionalPoints
-                            mutableData.value = totalPoints
-                            return Transaction.success(mutableData)
-                        }
-
-                        override fun onComplete(databaseError: DatabaseError?, b: Boolean, dataSnapshot: DataSnapshot?) {
-                            // 추가 처리
-                        }
-                    })
-                } else {
-                    Toast.makeText(applicationContext, "오늘은 더 이상 포인트를 줄 수 없어요!", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // 오류 처리
-            }
-        })
     }
 
     private fun updatePieChart(points: Int) {
@@ -330,19 +266,6 @@ class mainMenu : AppCompatActivity(), EasyPermissions.PermissionCallbacks{
             .addOnFailureListener{
                 Timber.d("Failure - Request Updates")
             }
-        /*var detectionIntervalMillis = 0; // 10초
-
-        client
-            .requestActivityUpdates(
-                detectionIntervalMillis.toLong(),
-                getPendingIntent()
-            )
-            .addOnSuccessListener {
-                Timber.d("Success - Request Updates")
-            }
-            .addOnFailureListener{
-                Timber.d("Failure - Request Updates")
-            }*/
     }
 
     private fun removeUpdates() {

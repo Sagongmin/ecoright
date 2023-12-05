@@ -20,29 +20,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ActivityTransitionReceiver: BroadcastReceiver() {
+    var getPoint = 0
+    val pointsPerMinute = 10
+    val millisPerMinute = 5000 //5초당 10포인트
+    val maxDailyPoints = 500
     companion object {
         val activityStartTimes = mutableMapOf<Int, Long>()
     }
     override fun onReceive(context: Context, intent: Intent) {
-        /*if (ActivityRecognitionResult.hasResult(intent)) {
-            val result = ActivityRecognitionResult.extractResult(intent)
-            val mostProbableActivity = result.mostProbableActivity
-            val activityType = mostProbableActivity.type
-            val confidence = mostProbableActivity.confidence
-            val activityName: String = getActivityName(activityType)
-            Timber.d("Detected activity: %s, Confidence: %d%%", activityName, confidence)
-
-            Notify
-                .with(context)
-                .content {
-                    title = "Activity Detected"
-                    text =
-                        "I can see you are in ${ActivityTransitionUtil.toActivityString(activityType)} state"
-                }
-                .show(999)
-            // 필요한 작업 수행
-        }*/
-
         if (ActivityTransitionResult.hasResult(intent)){
             val result = ActivityTransitionResult.extractResult(intent)
             result?.let {
@@ -61,16 +46,16 @@ class ActivityTransitionReceiver: BroadcastReceiver() {
                                 val timeSpent = eventTime - it
                                 val activityName = getActivityName(activityType)
 
-                                val info = "Transition: $activityName - Exit, Duration: $timeSpent ms"
-                                Timber.d(info)
-                                Toast.makeText(context, "$activityName 행동 탈출, 행동간 간격: $timeSpent ms", Toast.LENGTH_SHORT).show()
-
                                 // 사용자 ID를 가져옵니다. 이 예에서는 임시로 "userId"를 사용합니다.
                                 val user = FirebaseAuth.getInstance().currentUser
                                 val userId = user?.uid // 사용자의 UID를 가져옵니다.
                                 userId?.let { uid ->
-                                    updateWalkingTimeInFirebase(uid, timeSpent)
+                                    updateWalkingTimeInFirebase(uid, timeSpent, context)
                                 }
+
+                                val info = "Transition: $activityName - Exit, Duration: $timeSpent ms"
+                                Timber.d(info)
+                                Toast.makeText(context, "$activityName 행동 탈출, 행동 시간: $timeSpent ms, $getPoint 포인트 획득!", Toast.LENGTH_SHORT).show()
                             }
                         }
                     }
@@ -114,21 +99,61 @@ class ActivityTransitionReceiver: BroadcastReceiver() {
         }
     }
 
-    private fun updateWalkingTimeInFirebase(userId: String, timeSpentWalking: Long) {
+    private fun updateWalkingTimeInFirebase(userId: String, timeSpentWalking: Long, context: Context) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = dateFormat.format(Date()) // 오늘 날짜를 "yyyy-MM-dd" 포맷으로 가져옵니다.
 
         val databaseRef = FirebaseDatabase.getInstance().getReference("users").child(userId)
         val walkingTimeRef = databaseRef.child("walkingTimeDates").child(date)
+        val dailyPointsRef = databaseRef.child("dailyPoints").child(date)
+        val totalPointsRef = databaseRef.child("totalPoints")
 
         // 현재 저장된 걸은 시간을 가져옵니다.
         walkingTimeRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // 기존에 저장된 걸음 시간을 가져옵니다. 없다면 0으로 시작합니다.
                 val currentWalkingTime = dataSnapshot.getValue(Long::class.java) ?: 0L
-                // 걸은 시간을 추가합니다.
                 val updatedWalkingTime = currentWalkingTime + timeSpentWalking
-                // 데이터베이스를 업데이트합니다.
+
+                dailyPointsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var currentDailyPoints = snapshot.getValue(Int::class.java) ?: 0
+                        val additionalPoints = ((timeSpentWalking / millisPerMinute) * pointsPerMinute).toInt()
+
+                        // 새로운 포인트 계산 (최대 제한 고려)
+                        val newDailyPoints = (currentDailyPoints + additionalPoints).coerceAtMost(maxDailyPoints)
+
+                        // 일일 포인트 추가 (최대 제한을 넘지 않는 범위에서)
+                        val pointsToAdd = newDailyPoints - currentDailyPoints
+                        getPoint = pointsToAdd
+                        currentDailyPoints = newDailyPoints
+
+                        dailyPointsRef.setValue(currentDailyPoints)
+
+                        // 전체 포인트에 추가
+                        if (pointsToAdd > 0) {
+                            totalPointsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(totalSnapshot: DataSnapshot) {
+                                    val currentTotalPoints = totalSnapshot.getValue(Int::class.java) ?: 0
+                                    val newTotalPoints = currentTotalPoints + pointsToAdd
+                                    totalPointsRef.setValue(newTotalPoints)
+                                }
+
+                                override fun onCancelled(databaseError: DatabaseError) {
+                                    Timber.e("Failed to read total points: ${databaseError.toException()}")
+                                }
+                            })
+                        }
+
+                        if(currentDailyPoints == maxDailyPoints){
+                            Toast.makeText(context, "오늘은 더 이상 포인트를 줄 수 없어요!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        Timber.e("Failed to read daily points: ${databaseError.toException()}")
+                    }
+                })
+
                 walkingTimeRef.setValue(updatedWalkingTime).addOnSuccessListener {
                     Timber.d("Updated walking time successfully: $updatedWalkingTime ms")
                 }.addOnFailureListener {

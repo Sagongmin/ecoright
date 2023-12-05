@@ -10,7 +10,9 @@
     <string name="some_eco">Eco Life</string>
     <string name="whatismypoint">나의 에코 포인트는? </string>
     <string name="sumco2">총합 CO2 합계</string>
-    <string name="indivisual_sumco2">개별 CO2</string>
+    <string name="indivisual_electriciry_co2">개별 CO2 : 전기</string>
+    <string name="indivisual_gas_co2">개별 CO2 : 가스</string>
+    <string name="indivisual_water_co2">개별 CO2 : 수도</string>
     <string name="outcomeco2">CO2 발생량</string>>
     <string name="needtree">필요 소나무</string>
 </resources>
